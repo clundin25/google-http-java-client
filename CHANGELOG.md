@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.42.3](https://github.com/googleapis/google-http-java-client/compare/v1.42.2...v1.42.3) (2022-08-04)
+
+
+### Dependencies
+
+* update dependency com.google.code.gson:gson to v2.9.1 ([#1700](https://github.com/googleapis/google-http-java-client/issues/1700)) ([5c17e2b](https://github.com/googleapis/google-http-java-client/commit/5c17e2ba56ec094a375f986f58867856ba3192cf))
+* update dependency com.google.errorprone:error_prone_annotations to v2.15.0 ([#1701](https://github.com/googleapis/google-http-java-client/issues/1701)) ([0a2e437](https://github.com/googleapis/google-http-java-client/commit/0a2e437017bec6ddf09cff99f535c012a43a5fd6))
+* update dependency com.google.protobuf:protobuf-java to v3.21.3 ([#1694](https://github.com/googleapis/google-http-java-client/issues/1694)) ([f86112d](https://github.com/googleapis/google-http-java-client/commit/f86112d90ce138dc5cbdca6ddcc50aec3e952740))
+* update dependency com.google.protobuf:protobuf-java to v3.21.4 ([#1698](https://github.com/googleapis/google-http-java-client/issues/1698)) ([fdabd56](https://github.com/googleapis/google-http-java-client/commit/fdabd5672c571c473351ac36248e365f7dd7dcf5))
+* update dependency org.apache.felix:maven-bundle-plugin to v5.1.7 ([#1688](https://github.com/googleapis/google-http-java-client/issues/1688)) ([8bea209](https://github.com/googleapis/google-http-java-client/commit/8bea209c7b23ffb5a57f683ae21889a87f9b7f55))
+* update dependency org.apache.felix:maven-bundle-plugin to v5.1.8 ([#1699](https://github.com/googleapis/google-http-java-client/issues/1699)) ([fa578e0](https://github.com/googleapis/google-http-java-client/commit/fa578e0f7ad6a6c45a0b9de54a936a16a8d345a7))
+
 ## [1.42.2](https://github.com/googleapis/google-http-java-client/compare/v1.42.1...v1.42.2) (2022-07-13)
 
 
