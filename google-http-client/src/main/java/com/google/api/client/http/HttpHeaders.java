@@ -25,6 +25,8 @@ import com.google.api.client.util.Preconditions;
 import com.google.api.client.util.StringUtils;
 import com.google.api.client.util.Throwables;
 import com.google.api.client.util.Types;
+import com.google.common.collect.ImmutableSet;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.Type;
@@ -823,6 +825,9 @@ public class HttpHeaders extends GenericData {
     return setAuthorization("Basic " + encoded);
   }
 
+  private static ImmutableSet<String> SENSITIVE_HEADER_KEYS = ImmutableSet.of("client_id", "client_secret", "refresh_token", "access_token", "id_token", "authorization", "cookie");
+  private static String REDACTED_HEADER = "<Redacted>";
+
   private static void addHeader(
       Logger logger,
       StringBuilder logbuf,
@@ -840,7 +845,7 @@ public class HttpHeaders extends GenericData {
     String stringValue = toStringValue(value);
     // log header
     String loggedStringValue = stringValue;
-    if (("Authorization".equalsIgnoreCase(name) || "Cookie".equalsIgnoreCase(name))
+    if (SENSITIVE_HEADER_KEYS.contains(name.toLowerCase())
         && (logger == null || !logger.isLoggable(Level.ALL))) {
       loggedStringValue = "<Not Logged>";
     }
@@ -1106,7 +1111,11 @@ public class HttpHeaders extends GenericData {
     StringBuilder logger = state.logger;
 
     if (logger != null) {
-      logger.append(headerName + ": " + headerValue).append(StringUtils.LINE_SEPARATOR);
+      if(SENSITIVE_HEADER_KEYS.contains(headerName.toLowerCase())) {
+          logger.append(headerName + ": " + REDACTED_HEADER).append(StringUtils.LINE_SEPARATOR);
+      } else {
+          logger.append(headerName + ": " + headerValue).append(StringUtils.LINE_SEPARATOR);
+      }
     }
     // use field information if available
     FieldInfo fieldInfo = classInfo.getFieldInfo(headerName);
